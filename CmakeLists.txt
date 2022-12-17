@@ -1,0 +1,29 @@
+# Option to build shared libraries (as opposed to static), default: OFF
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+
+file(GLOB_RECURSE SOURCES src/*.cpp
+                          src/utility/*.cpp
+                          src/Fonts/*.c)
+
+set(INCLUDES  src
+              src/Fonts
+              src/Fonts/Custom
+              src/Fonts/GFXFF
+              src/Fonts/TrueType
+              src/utility)
+
+#add_library(m5stack STATIC ${SOURCES})
+
+#target_compile_options(${COMPONENT_LIB} PRIVATE -Wno-unused-variable)
+
+
+idf_component_register(SRCS ${SOURCES}
+                       INCLUDE_DIRS ${INCLUDES}
+                       PRIV_REQUIRES arduino
+                       REQUIRES arduino)
+
+target_compile_options(${COMPONENT_LIB} PRIVATE -Wno-unused-variable
+                                                -Wno-maybe-uninitialized)
+
+#add_prebuilt_library(m5core2 lib_path [REQUIRES req1 req2 ...] [PRIV_REQUIRES req1 req2 ...])
+#add_library(m5core2 STATIC ${SOURCES})
