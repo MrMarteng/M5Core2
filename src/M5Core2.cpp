@@ -5,6 +5,8 @@
 
 M5Core2::M5Core2() : isInited(0) {}
 
+M5Core2 M5Core2::m_M5Core2 = M5Core2();
+
 void M5Core2::begin(bool LCDEnable, bool SDEnable, bool SerialEnable,
                     bool I2CEnable, mbus_mode_t mode) {
   // Correct init once

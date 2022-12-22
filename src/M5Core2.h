@@ -90,6 +90,9 @@ class M5Core2 {
              bool SerialEnable = true, bool I2CEnable = false,
              mbus_mode_t mode = kMBusModeOutput);
   void update();
+  
+  static M5Core2& getInstance() 
+    {return M5Core2::m_M5Core2;};
 
   void shutdown();
   int shutdown(int seconds);
@@ -136,11 +139,9 @@ class M5Core2 {
 
  private:
   bool isInited;
+  static M5Core2 m_M5Core2;
 };
 
-extern M5Core2 M5;
-#define m5 M5
-#define lcd Lcd
 #else
 #error "This library only supports boards with ESP32 processor."
 #endif
