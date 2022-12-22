@@ -12,18 +12,21 @@ set(INCLUDES  src
               src/Fonts/TrueType
               src/utility)
 
-#add_library(m5stack STATIC ${SOURCES})
-
-#target_compile_options(${COMPONENT_LIB} PRIVATE -Wno-unused-variable)
-
-
-idf_component_register(SRCS ${SOURCES}
-                       INCLUDE_DIRS ${INCLUDES}
-                       PRIV_REQUIRES arduino
-                       REQUIRES arduino)
+# register target library
+if(ESP_PLATFORM)
+    idf_component_register(SRCS ${SOURCES}
+                           INCLUDE_DIRS ${INCLUDES}
+                           PRIV_REQUIRES arduino
+                           REQUIRES arduino)
+else()
+    add_library(m5core2 STATIC ${SOURCES})
+endif()
 
 target_compile_options(${COMPONENT_LIB} PRIVATE -Wno-unused-variable
                                                 -Wno-maybe-uninitialized)
 
-#add_prebuilt_library(m5core2 lib_path [REQUIRES req1 req2 ...] [PRIV_REQUIRES req1 req2 ...])
-#add_library(m5core2 STATIC ${SOURCES})
+# Library only works with ESP32                                                
+add_compile_definitions("ESP32")
+if(IDF_TARGET STRLESS_EQUAL "ESP32")
+    message("M5Core2 library only works with ESP32. Please check your configuration!")
+endif()
