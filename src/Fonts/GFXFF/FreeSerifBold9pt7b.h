@@ -199,7 +199,7 @@ const GFXfont FreeSerifBold9pt7b PROGMEM = {
   (GFXglyph *)FreeSerifBold9pt7bGlyphs,
   0x20, 0x7E, 22,
   #ifdef USE_M5_FONT_CREATOR
-  0, 0
+  0, NULL, 0
   #endif
   };
 

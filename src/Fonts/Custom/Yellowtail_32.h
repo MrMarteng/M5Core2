@@ -581,6 +581,7 @@ const GFXfont Yellowtail_32 PROGMEM = {
     45,
 #ifdef USE_M5_FONT_CREATOR
     0,
+    NULL,
     0,
 #endif
 };

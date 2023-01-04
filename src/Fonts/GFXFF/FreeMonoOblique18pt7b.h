@@ -395,7 +395,7 @@ const GFXfont FreeMonoOblique18pt7b PROGMEM = {
   (GFXglyph *)FreeMonoOblique18pt7bGlyphs,
   0x20, 0x7E, 35,
   #ifdef USE_M5_FONT_CREATOR
-  0, 0
+  0, NULL, 0
   #endif
   };
 

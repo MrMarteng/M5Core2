@@ -471,4 +471,8 @@ const GFXglyph TomThumbGlyphs[] PROGMEM = {
 const GFXfont TomThumb PROGMEM = {
   (uint8_t  *)TomThumbBitmaps,
   (GFXglyph *)TomThumbGlyphs,
-  0x20, 0x7E, 6 };
+  0x20, 0x7E, 6
+#ifdef USE_M5_FONT_CREATOR
+  , 0, NULL, 0
+#endif
+};

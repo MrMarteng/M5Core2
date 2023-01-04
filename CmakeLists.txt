@@ -23,7 +23,8 @@ else()
 endif()
 
 target_compile_options(${COMPONENT_LIB} PRIVATE -Wno-unused-variable
-                                                -Wno-maybe-uninitialized)
+                                                -Wno-maybe-uninitialized
+                                                -Wno-missing-field-initializers)
 
 # Library only works with ESP32                                                
 add_compile_definitions("ESP32")

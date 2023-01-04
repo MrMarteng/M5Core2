@@ -574,7 +574,7 @@ const GFXfont FreeMono24pt7b PROGMEM = {
   (GFXglyph *)FreeMono24pt7bGlyphs,
   0x20, 0x7E, 47,
   #ifdef USE_M5_FONT_CREATOR
-  0, 0
+  0, NULL, 0
   #endif
   };
 

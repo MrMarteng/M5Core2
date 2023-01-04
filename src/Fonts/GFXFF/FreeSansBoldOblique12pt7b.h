@@ -312,6 +312,10 @@ const GFXglyph FreeSansBoldOblique12pt7bGlyphs[] PROGMEM = {
 const GFXfont FreeSansBoldOblique12pt7b PROGMEM = {
   (uint8_t  *)FreeSansBoldOblique12pt7bBitmaps,
   (GFXglyph *)FreeSansBoldOblique12pt7bGlyphs,
-  0x20, 0x7E, 29 };
+  0x20, 0x7E, 29
+#ifdef USE_M5_FONT_CREATOR
+  , 0, NULL, 0
+#endif
+};
 
 // Approx. 3207 bytes
